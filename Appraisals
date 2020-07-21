@@ -616,7 +616,8 @@ elsif Gem::Version.new('2.4.0') <= Gem::Version.new(RUBY_VERSION) \
   end
 elsif Gem::Version.new('2.5.0') <= Gem::Version.new(RUBY_VERSION) \
       && Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.6.0')
-  if RUBY_PLATFORM != 'java'
+  # TODO: do the same for other versions of ruby above and below
+  # if RUBY_PLATFORM != 'java'
     appraise 'rails5-mysql2' do
       gem 'rails', '~> 5.2.1'
       gem 'mysql2', '< 1', platform: :ruby
@@ -701,7 +702,7 @@ elsif Gem::Version.new('2.5.0') <= Gem::Version.new(RUBY_VERSION) \
       gem 'faraday'
       gem 'grape'
       gem 'graphql'
-      gem 'grpc'
+      gem 'grpc', platform: :ruby
       gem 'hiredis'
       gem 'http'
       gem 'mongo', '>= 2.8.0'
@@ -719,7 +720,7 @@ elsif Gem::Version.new('2.5.0') <= Gem::Version.new(RUBY_VERSION) \
       gem 'shoryuken'
       gem 'sidekiq'
       gem 'sinatra'
-      gem 'sqlite3', '~> 1.4.1'
+      gem 'sqlite3', '~> 1.4.1', platform: :ruby
       gem 'sucker_punch'
       gem 'typhoeus'
     end
@@ -727,7 +728,7 @@ elsif Gem::Version.new('2.5.0') <= Gem::Version.new(RUBY_VERSION) \
     appraise 'contrib-old' do
       gem 'faraday', '0.17'
     end
-  end
+  # end
 elsif Gem::Version.new('2.6.0') <= Gem::Version.new(RUBY_VERSION) \
       && Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.7.0')
   if RUBY_PLATFORM != 'java'
