@@ -46,6 +46,8 @@ module Datadog
                 return connector
               end
             end
+
+            raise 'No database adapter found!'
           end
 
           def postgres_url
